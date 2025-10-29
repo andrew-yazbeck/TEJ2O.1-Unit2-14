@@ -7,7 +7,9 @@
 
 // variables
 let sprite: game.LedSprite = null
-let loopCounter = 0
+let loopCounterX = 0
+let loopCounterY = 0
+
 
 // setup
 basic.showIcon(IconNames.Happy)
@@ -18,15 +20,30 @@ basic.clearScreen()
 input.onButtonPressed(Button.A, function () {
     // setup
     basic.clearScreen()
-    loopCounter = 0
+    loopCounterX = 0
     sprite = game.createSprite(0, 0)
 
-    while (loopCounter <= 5) {
-        sprite.set(LedSpriteProperty.X, loopCounter)
-        sprite.set(LedSpriteProperty.Y, loopCounter)
-        loopCounter = loopCounter + 1
+    while (loopCounterY <= 4) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY + 1
         basic.pause(500)
     }
+    while (loopCounterX <= 4) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX + 1
+        basic.pause(500)
+    }
+    while (loopCounterY >= 0) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY - 1
+        basic.pause(500)
+    }
+    while (loopCounterX >= 0) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX - 1
+        basic.pause(500)
+    }
+
     sprite.delete()
     basic.showIcon(IconNames.Happy)
 })
@@ -35,13 +52,27 @@ input.onButtonPressed(Button.A, function () {
 input.onButtonPressed(Button.B, function () {
     // setup
     basic.clearScreen()
-    loopCounter = 5
-    sprite = game.createSprite(5, 5)
+    loopCounterX = 5
+    sprite = game.createSprite(0, 0)
 
-    while (loopCounter >= 0) {
-        sprite.set(LedSpriteProperty.X, loopCounter)
-        sprite.set(LedSpriteProperty.Y, loopCounter)
-        loopCounter = loopCounter - 1
+    while (loopCounterX <= 4) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX + 1
+        basic.pause(500)
+    }
+    while (loopCounterY <= 4) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY + 1
+        basic.pause(500)
+    }
+    while (loopCounterX >= 0) {
+        sprite.set(LedSpriteProperty.Y, loopCounterX)
+        loopCounterX = loopCounterX - 1
+        basic.pause(500)
+    }
+    while (loopCounterY >= 0) {
+        sprite.set(LedSpriteProperty.X, loopCounterY)
+        loopCounterY = loopCounterY - 1
         basic.pause(500)
     }
     sprite.delete()
